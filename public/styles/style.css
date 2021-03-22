@@ -59,9 +59,9 @@ table{
 }
 
 .container{
-    width: 80%;
-    margin:auto;
-    overflow:hidden;
+    width: 70%;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
 }
 
 .table{
@@ -81,30 +81,24 @@ table{
   list-style-type: none;
 }
 
-#main-header{
-    background-color: coral;
-    color:#fff;
+.navbar{
+  background-color:#333;
+  flex-direction: row;
+  color:#333;
+  display: flex;
+  width: 100%;
+  margin: 0 0 0 0;
+  padding-left: 0;
+  align-items: flex-start;
+} 
+
+.nav-item{
+  background-color: #333;
+  padding-left: 5%;
 }
 
-#navbar{
-    background-color:#333;
-    color:#fff;
-}
-
-#navbar ul{
-    padding-top:10px;
-    list-style:none;
-}
-
-#navbar li{
-    display:inline;
-}
-
-#navbar a{
-    color:#fff;
-    text-decoration: none;
-    font-size: 18px;
-    padding-right:15px;
+.nav-item a {
+  color:white;
 }
 
 #contactbtn{
@@ -112,4 +106,15 @@ table{
   position: absolute;
   top: 65%;
   left: 47%;
+}
+
+#about {
+  width: 30%;
+  align-self: flex-end;
+  text-align: right;
+}
+
+#about a {
+  color: white;
+  padding-right: 5%;
 }

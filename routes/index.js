@@ -113,7 +113,7 @@ router.get("/:date/:id", (req, res) => {
         let vThird = ""
         let vFourth = ""
         switch(data.sports_content.game.period_time.period_value){
-          case "1": 
+          case "1":
             hFirst = data.sports_content.game.home.linescores.period[0].score
             vFirst = data.sports_content.game.visitor.linescores.period[0].score
             break;
@@ -131,7 +131,7 @@ router.get("/:date/:id", (req, res) => {
             hThird = data.sports_content.game.home.linescores.period[2].score
             vThird = data.sports_content.game.visitor.linescores.period[2].score
             break;
-          case "4": 
+          default:
             hFirst = data.sports_content.game.home.linescores.period[0].score
             hSecond = data.sports_content.game.home.linescores.period[1].score
             hThird = data.sports_content.game.home.linescores.period[2].score
@@ -142,7 +142,6 @@ router.get("/:date/:id", (req, res) => {
             vFourth = data.sports_content.game.visitor.linescores.period[3].score
             break;
         }
-          
         gameInfo = {
           quarter: "Quarter " + data.sports_content.game.period_time.period_value,
           qStatus: data.sports_content.game.period_time.period_status,
