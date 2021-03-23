@@ -1,5 +1,10 @@
+@font-face {
+  font-family: 'scoreboard';
+  src:  url('../fonts/scoreboardFont.ttf') format('truetype');
+}
+
 body{
-    background-color:white;
+    background-color:rgba(247, 244, 244, 0.651);
     color:#555;
     font-family: Arial, Helvetica, sans-serif;
     font-size:16px;
@@ -19,15 +24,10 @@ table{
 .margin{
   margin-top: 20px;
 }
-.margin2{
-  margin-top: 30px;
-  border-bottom:1px solid black;
-}
 
 .row{
     justify-content:center;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 0;
 }
 
 .col-sm{
@@ -65,7 +65,18 @@ table{
 }
 
 .table{
-    border-bottom:1px solid black;
+    width: 48.5%;
+    background-color: white;
+    align-items: center;
+}
+
+.dummy { 
+  width: 0.75%;
+  background-color: rgba(247, 244, 244, 0.651);
+}
+
+.table:hover{
+  background-color: rgba(247, 244, 244, 0.651);
 }
 
 .col-lg-8{
@@ -101,6 +112,24 @@ table{
   color:white;
 }
 
+.scores {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  
+}
+.displayDate{
+  text-align: center; 
+  font-size: 400%;
+  font-family: scoreboard;
+}
+
+.arrow{
+  text-align: center; 
+  font-size: 400%;
+}
+
+
 #contactbtn{
   border: 2px solid black;
   position: absolute;
@@ -117,4 +146,23 @@ table{
 #about a {
   color: white;
   padding-right: 5%;
+}
+
+.tables {
+  width: 100%;
+  margin: 0 0 0 0;
+}
+
+.dateArrow:link{
+  text-decoration: none;
+}
+.dateArrow:visited{
+  text-decoration: none;
+}
+.dateArrow:hover{
+  text-decoration: none;
+}
+
+.score{
+  font-family: scoreboard;
 }
