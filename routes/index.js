@@ -114,8 +114,8 @@ router.get("/:date/:id", (req, res) => {
         let vFourth = ""
         switch(data.sports_content.game.period_time.period_value){
           case "1":
-            hFirst = data.sports_content.game.home.linescores.period[0].score
-            vFirst = data.sports_content.game.visitor.linescores.period[0].score
+            hFirst = data.sports_content.game.home.linescores.period.score
+            vFirst = data.sports_content.game.visitor.linescores.period.score
             break;
           case "2":
             hFirst = data.sports_content.game.home.linescores.period[0].score
