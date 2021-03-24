@@ -2,11 +2,15 @@
 <div class="margin">
 </div>
 
-<div class="table">
-  <div class="row">
+<div class="boxscoreHeader">
+  <div class = "flex-box">
+    <img class = 'boxHeadLogoHome' src= "./logos/<%=gameInfo.home.name%>.png" alt="">
+    <img class = 'boxHeadLogoAway' src= "./logos/<%=gameInfo.away.name%>.png" alt="">
+  </div>
+  
+  <div class="flex-box">
     <div class="col-lg-1">
       <h2><%=gameInfo.home.name%></h2>
-      <img src="" alt="">
     </div>
     <div class="col-lg-8">
       <h1><%=gameInfo.quarter%></h1>
@@ -14,10 +18,9 @@
     <div class="col-lg-1">
       <h2><%=gameInfo.away.name%></h2>
     </div>
-
   </div>
 
-  <div class="row">
+  <div class="flex-box">
     <div class="col-lg-1">
       <h1 class = score> <%=gameInfo.home.score%> </h1>
     </div>
@@ -27,7 +30,6 @@
     <div class="col-lg-1">
       <h1 class = score><%=gameInfo.away.score%></h1>
     </div>
-
   </div>
 
 </div>
@@ -38,17 +40,18 @@
   <div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        <button class="btn btn-link collapsed cardTitle" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          <img class = 'boxLogo' src= "./logos/<%=gameInfo.home.name%>.png" alt="">
           <%=gameInfo.home.name%>
         </button>
       </h5>
     </div>
 
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
       <div class="card-body">
         <table>
           <tr>
-            <th>Name</th>
+            <th class = playername>Name</th>
             <th>Pos</th>
             <th>Mins</th>
             <th>Pts</th>
@@ -95,12 +98,13 @@
   <div class="card">
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <button class="btn btn-link collapsed cardTitle" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <img class = 'boxLogo' src= "./logos/<%=gameInfo.away.name%>.png" alt="">
           <%=gameInfo.away.name%>
         </button>
       </h5>
     </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
+    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo">
       <div class="card-body">
         <table>
           <tr>
@@ -151,12 +155,12 @@
   <div class="card">
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        <button class="btn btn-link collapsed cardTitle" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
           Game Info
         </button>
       </h5>
     </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
+    <div id="collapseThree" class="collapse show" aria-labelledby="headingThree">
       <div class="card-body">
         <table>
           <tr>
@@ -166,7 +170,7 @@
             <th>3rd</th>
             <th>4th</th>
           </tr>
-          <tr>
+          <tr id = gameinfo>
             <td><%=gameInfo.home.name%></td>
             <td><%=gameInfo.home.first%></td>
             <td><%=gameInfo.home.second%></td>

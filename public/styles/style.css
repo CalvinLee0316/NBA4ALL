@@ -13,7 +13,6 @@ body{
 }
 
 table, th, td {
-    border: 1px solid black;
     border-collapse: collapse;
   }
 
@@ -85,7 +84,7 @@ table{
 
 .aboutHead{
   text-align: center;
-  background-color: #ecfafc;
+  background-color: rgba(247, 244, 244, 0.651);
 }
 
 .aboutHead li{
@@ -129,25 +128,6 @@ table{
   font-size: 400%;
 }
 
-
-#contactbtn{
-  border: 2px solid black;
-  position: absolute;
-  top: 65%;
-  left: 47%;
-}
-
-#about {
-  width: 30%;
-  align-self: flex-end;
-  text-align: right;
-}
-
-#about a {
-  color: white;
-  padding-right: 5%;
-}
-
 .tables {
   width: 100%;
   margin: 0 0 0 0;
@@ -165,4 +145,135 @@ table{
 
 .score{
   font-family: scoreboard;
+}
+
+.cardTitle{
+  color: black;
+  align-items: left;
+  justify-items: left;
+  text-align: left;
+}
+.cardTitle:link{
+  text-decoration: none;
+}
+.cardTitle:visited{
+  text-decoration: none;
+}
+.cardTitle:hover{
+  text-decoration: none;
+}
+
+
+
+.aboutContainer{
+  position: relative;
+  width: 100%;
+}
+
+#contactbtn{  
+  border: 2px solid black;
+  position: absolute;
+  top: 5%;
+  width: 10%;
+  left: 40%;
+}
+
+#donatebtn{
+  border: 2px solid black;
+  position: absolute;
+  align-self: center;
+  top: 5%;
+  left: 50%;
+  width: 10%
+}
+
+#about {
+  width: 30%;
+  align-self: flex-end;
+  text-align: right;
+}
+
+#about a {
+  color: white;
+  padding-right: 5%;
+}
+
+.card{
+  align-self: center;
+}
+
+#accordion{
+  margin-left: 10%;
+  width: 80%;
+}
+
+table{
+  width: 100%;
+}
+
+.flex-box{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 0 0 0;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+}
+
+.col-lg-1{
+  text-align: center;
+}
+
+tr:nth-child(even) {background: rgba(247, 244, 244, 0.651)}
+tr:nth-child(odd) {background: #FFF}
+
+td:first-child {
+  text-align: left;
+}
+
+th:first-child {
+  text-align: left;
+}
+td{
+  text-align: right;
+}
+
+th{
+  text-align: right;
+}
+
+#gameinfo{
+  background: white;
+}
+
+.card{
+  margin-bottom: 2%;
+}
+
+.boxLogo{
+  width: 10%;
+}
+
+.boxHeadLogoHome{
+  width: 3%;
+  margin-left: 6.8%;
+  margin-right: auto;
+}
+
+.boxHeadLogoAway{
+  width: 3%;
+  margin-right: 6.8%;
+  margin-left: auto;
+}
+
+.member{
+  margin-bottom: 0;
+}
+
+.score{
+  font-size: 400%;
+}
+
+.arena{
+  font-size: 200%;
 }

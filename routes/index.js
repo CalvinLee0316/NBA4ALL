@@ -61,12 +61,17 @@ router.get("/calendar/:date", (req, res) => {
     .then(data => {
       data.games.forEach(game => {
         let status = ""
+        let period = ""
+        let clock = ""
         if (game.statusNum == 3) {
-          status = "Final"
+          period = "Final"
         } else if (game.statusNum == 1) {
           status = "Scheduled"
+          period = game.startTimeEastern
         } else if (game.statusNum == 2) {
           status = "Live"
+          period = game.period.current + "Q"
+          clock = game.clock
         }
         games.push({
           date:date,
@@ -80,7 +85,9 @@ router.get("/calendar/:date", (req, res) => {
           HomeScore: game.hTeam.score,
           AwayScore: game.vTeam.score,
           status: status,
-          arena: game.arena.city + ", " + game.arena.name
+          arena: game.arena.city + ", " + game.arena.name,
+          clock: clock,
+          period: period
         })
       })
       res.render("index", {
