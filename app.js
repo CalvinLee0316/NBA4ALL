@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.get("/", (req,res)=>{
-  res.redirect("about")
+  res.render("home")
 })
 app.get("/about", (req, res) => {
   res.render("about")
