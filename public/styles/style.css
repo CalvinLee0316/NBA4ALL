@@ -75,6 +75,7 @@ table{
     width: 48.5%;
     background-color: white;
     align-items: center;
+    border-radius: 20px;
 }
 
 .dummy { 
