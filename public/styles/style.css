@@ -369,7 +369,6 @@ li h1, li h2, li h3{
 #features{
   background:rgba(230, 175, 103, 0.589);
   margin-top: 10px;
-  margin-border: 10px;
   border-radius: 10px;
 }
 
@@ -435,4 +434,33 @@ li h1, li h2, li h3{
 
 .shoeCategory a{
   width: 50%
+}
+
+/* shoe reviews */
+.revHeader{
+  margin-left: 30px;
+}
+
+.review{
+  margin-left: 35px;
+}
+
+.review div{
+  margin-bottom: 60px;
+}
+
+.review div h4, .review div p, .review div h3{
+  margin-left: 10px;
+}
+
+.review div h4{
+  margin-top: 15px;
+}
+
+.review div p{
+  font-size: larger;
+}
+
+.gameInfo {
+  width: 60%;
 }
