@@ -28,6 +28,10 @@ app.get("/contact", (req, res) => {
   res.render("contact")
 })
 
+app.get('/sneaks', (req,res)=>{
+  res.render("./shoes/shoeHome")
+})
+
 //Routes
 app.use('/index', indexRoute);
 app.use('/sneaks', sneaksRoute)

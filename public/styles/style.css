@@ -9,20 +9,20 @@
 }
 
 body{
-    background-color:rgba(247, 244, 244, 0.651);
-    color:#555;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:16px;
-    line-height:1.6em;
-    margin:0;
+  background-color:rgba(247, 244, 244, 0.651);
+  color:#555;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:16px;
+  line-height:1.6em;
+  margin:0;
 }
 
 table, th, td {
-    border-collapse: collapse;
-  }
+  border-collapse: collapse;
+}
 
 table{
-    width:80%;
+  width:80%;
 }
 
 .margin{
@@ -30,8 +30,8 @@ table{
 }
 
 .row{
-    justify-content:center;
-    margin: 0;
+  justify-content:center;
+  margin: 0;
 }
 
 .col-sm{
@@ -63,12 +63,12 @@ table{
 }
 
 .container{
-    width: 30%;
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+  width: 30%;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .table{
