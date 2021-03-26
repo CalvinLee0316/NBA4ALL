@@ -390,3 +390,49 @@ li h1, li h2, li h3{
   left: 50%;
   width: 10%
 }
+
+.shoeBackground{
+  width: 100%;
+  opacity: .75;
+}
+
+.shoeHomeContainer h1{
+  left: 35%;
+  top: 10%;
+  color: black;
+  position: absolute;
+  align-self: center;
+  font-size: 3.2vw;
+}
+.shoeHomeContainer h2{
+  left: 35%;
+  top: 15%;
+  color: black;
+  position: absolute;
+  align-self: center;
+  font-size: 1.8vw;
+}
+.shoeHomeContainer h3{
+  color: black;
+  position: relative;
+  align-self: center;
+  font-size: 1.8vw;
+}
+.shoeHomeContainer{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  font-family: Basketball;
+}
+
+.shoeCategory{
+  display: flex;
+  position: relative;
+  /*flex-direction: row;*/
+  font-family: Basketball;
+  flex-wrap: wrap;
+}
+
+.shoeCategory a{
+  width: 50%
+}
