@@ -5,19 +5,111 @@ let mongoose = require("mongoose");
 let bodyParser = require("body-parser");
 let fetch = require("node-fetch");
 require('dotenv').config()
+const session = require('express-session')
+const passport = require('passport')
+const passportLocalMongoose = require('passport-local-mongoose')
+
+var findOrCreate = require('mongoose-findorcreate')
 
 //Routes
-let indexRoute = require("./routes/index.js");
-let sneaksRoute = require("./routes/sneaks.js")
+const indexRoute = require("./routes/index.js");
+const sneaksRoute = require("./routes/sneaks.js");
+const { get } = require("./routes/index.js");
 
 // App set up
-let app = express();
+const app = express();
 app.use(express.static("public"));
 app.set("view engine", "ejs")
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+mongoose.connect('mongodb://localhost:27017/hoopUsers', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+
+mongoose.set('useCreateIndex', true)
+
+const userSchema = new mongoose.Schema({
+  email: String,
+  password: String
+})
+
+userSchema.plugin(passportLocalMongoose)
+userSchema.plugin(findOrCreate)
+
+const User = new mongoose.model("User", userSchema)
+
+passport.use(User.createStrategy())
+
+passport.use(User.createStrategy())
+passport.serializeUser(function (user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function (id, done) {
+  User.findById(id, function (err, user) {
+    done(err, user);
+  });
+});
 
 
-app.get("/", (req,res)=>{
+//login and register
+app.get('/login', (req, res) => {
+  res.render('./login')
+})
+
+app.get('/register', (req, res) => {
+  res.render('./register')
+})
+
+app.get('/secret', (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render('secret')
+  } else {
+    res.redirect('login')
+  }
+})
+
+app.get('/fail', (req,res)=>{
+  res.render('fail')
+})
+
+app.post('/login',passport.authenticate('local', { failureRedirect: '/fail' }),
+  function (req, res) {
+    res.redirect('/secret');
+  });
+
+app.post('/register', (req, res) => {
+  User.register({
+    username: req.body.username
+  }, req.body.password, function (err, user) {
+    if (err) {
+      console.log(err);
+      res.redirect('/register')
+    } else {
+      passport.authenticate('local')(req, res, function () {
+        res.redirect('/secret')
+      })
+    }
+  })
+})
+
+app.get('/logout', (req, res) => {
+  req.logout()
+  res.redirect('/')
+})
+
+//general
+app.get("/", (req, res) => {
   res.render("home")
 })
 app.get("/about", (req, res) => {
@@ -28,9 +120,10 @@ app.get("/contact", (req, res) => {
   res.render("contact")
 })
 
-app.get('/sneaks', (req,res)=>{
+app.get('/sneaks', (req, res) => {
   res.render("./shoes/shoeHome")
 })
+
 
 //Routes
 app.use('/index', indexRoute);
@@ -41,3 +134,4 @@ let port = process.env.PORT || 5000
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
