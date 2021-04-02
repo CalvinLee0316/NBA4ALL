@@ -14,6 +14,7 @@ var findOrCreate = require('mongoose-findorcreate')
 //Routes
 const indexRoute = require("./routes/index.js");
 const sneaksRoute = require("./routes/sneaks.js");
+const postsRoute = require("./routes/posts.js")
 const { get } = require("./routes/index.js");
 
 // App set up
@@ -31,7 +32,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect('mongodb://localhost:27017/hoopUsers', {
+const dbUser = mongoose.createConnection('mongodb://localhost:27017/hoopUsers', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -46,7 +47,8 @@ const userSchema = new mongoose.Schema({
 userSchema.plugin(passportLocalMongoose)
 userSchema.plugin(findOrCreate)
 
-const User = new mongoose.model("User", userSchema)
+const User = dbUser.model('Users', userSchema)
+
 
 passport.use(User.createStrategy())
 
@@ -108,6 +110,8 @@ app.get('/logout', (req, res) => {
   res.redirect('/')
 })
 
+
+
 //general
 app.get("/", (req, res) => {
   res.render("home")
@@ -128,10 +132,9 @@ app.get('/sneaks', (req, res) => {
 //Routes
 app.use('/index', indexRoute);
 app.use('/sneaks', sneaksRoute)
-
+app.use('/posts', postsRoute)
 //Listen
 let port = process.env.PORT || 5000
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-

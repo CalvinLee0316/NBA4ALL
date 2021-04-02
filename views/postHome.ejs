@@ -1,0 +1,13 @@
+<%- include('header'); -%>
+<!-- put header for posts up here, post button -->
+
+<!-- actual posts -->
+<% posts.forEach((post) =>{ %>
+    <a href = "<%= `/posts/${post._id}` %>">
+        <div id = postBox>
+            <h1><%=post.title%></h1>
+            <p><%=post.author%> <%=post.date%> <%=post.comments.length%> replies </p>
+    </div><a>
+
+<%})%>
+<%- include('footer'); -%>
