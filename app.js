@@ -32,7 +32,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-const dbUser = mongoose.createConnection('mongodb://localhost:27017/hoopUsers', {
+const dbUser = mongoose.createConnection(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -66,7 +66,11 @@ passport.deserializeUser(function (id, done) {
 
 //login and register
 app.get('/login', (req, res) => {
-  res.render('./login')
+  if(req.isAuthenticated()){
+    res.render('secret')
+  }else{
+    res.render('./login')
+  }
 })
 
 app.get('/register', (req, res) => {

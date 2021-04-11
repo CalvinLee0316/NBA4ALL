@@ -1,4 +1,10 @@
 <%- include('header'); -%>
-
+<form action="/posts/new" method= "POST" id = "newPost">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title"><br><br>
+    <label for="body">Body:</label>
+    <textarea type="text" id="body" name="body"></textarea><br><br>
+    <input type="submit" value="Submit">
+</form>
 
 <%- include('footer'); -%>

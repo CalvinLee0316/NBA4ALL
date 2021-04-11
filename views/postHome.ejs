@@ -2,12 +2,24 @@
 <!-- put header for posts up here, post button -->
 
 <!-- actual posts -->
-<% posts.forEach((post) =>{ %>
-    <a href = "<%= `/posts/${post._id}` %>">
-        <div id = postBox>
-            <h1><%=post.title%></h1>
-            <p><%=post.author%> <%=post.date%> <%=post.comments.length%> replies </p>
-    </div><a>
+<div class = discussHeader>
+    <a href="/posts/new" class="discussBtn">Start New Discussion</a>
+</div>
+<div class = "posts">
+    <% posts.forEach((post) =>{ %>
+        <div class = post>
+            <a href = "<%= `/posts/post/${post._id}` %>">
+                <div class = postBox>
+                    <pre>Posted by: <%=post.author%>      at      <%=post.date%></pre>
+                    <h2><%=post.title%></h2>
+                    <p><%=post.comments.length%> replies</p>
+            </div><a>
+        </div>
+    <%})%>
+</div>
 
-<%})%>
+<div class = discussFooter>
+    <a href="<%= `/posts/${next}` %>" class="discussBtn">Older Posts</a>
+</div>
+
 <%- include('footer'); -%>
