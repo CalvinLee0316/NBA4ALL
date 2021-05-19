@@ -23,15 +23,15 @@ const Post = dbPost.model('Posts', postSchema)
 
 router.get('/new', (req, res) => {
     if (req.isAuthenticated()) {
-        res.render('newPost')
+        res.render('newPost', {loggedin: req.isAuthenticated()})
     } else {
-        res.redirect('/login');
+        res.redirect('/login', {loggedin: req.isAuthenticated()});
     }
 })
 
 router.post('/new', (req, res) => {
     // create post on database
-    if(req.isAuthenticated){
+    if(req.isAuthenticated()){
         const post = new Post({
             author: req.user.username,
             title: req.body.title,
@@ -51,14 +51,15 @@ router.get('/:page', (req, res) => {
     const page = req.params.page
     const skip = (page - 1) * 10
     const next = parseInt(page) + 1
-    Post.find({}).skip(skip).limit(10).then((posts) => {
+    Post.find({}).sort({date: 'descending'}).skip(skip).limit(10).then((posts) => {
         if (posts.length == 0) {
-            res.render('noPosts');
+            res.render('noPosts', {loggedin: req.isAuthenticated()});
         } else {
             res.render('postHome',
                 {
                     posts: posts,
-                    next: next
+                    next: next,
+                    loggedin: req.isAuthenticated()
                 })
         }
     })
@@ -66,7 +67,14 @@ router.get('/:page', (req, res) => {
 
 router.get('/post/:id', (req, res) => {
     Post.findById(req.params.id).then((post) => {
-        res.render('post', { post })
+        let author = 0;
+        if(req.isAuthenticated()){
+            if(post.author == req.user.username){
+                author = 1
+            }
+        }
+        console.log(post);
+        res.render('post', { post: post, author: author, loggedin: req.isAuthenticated() })
     })
 })
 

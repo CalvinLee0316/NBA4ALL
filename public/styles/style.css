@@ -555,3 +555,30 @@ li h1, li h2, li h3{
   width: 100%;
   height: 20em;
 }
+
+.postTitle {
+  background-color:#e4e1e1;
+  margin-left: 2%;
+  width: 96%;
+}
+
+.postTitle h1, .postTitle pre {
+  margin-left: 1%;
+  margin-bottom: 0;
+}
+
+.postBody {
+  width: 96%;
+  padding-top: 2%;
+  margin-top: 0%;
+  margin-left: 2%;
+  background-color:#e4e1e1;
+}
+
+.postBody h3 {
+  margin-left: 2%
+}
+
+.comments p{
+  margin-left: 2%;
+}

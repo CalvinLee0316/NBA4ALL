@@ -91,7 +91,8 @@ router.get("/calendar/:date", (req, res) => {
         })
       })
       res.render("index", {
-        games: games
+        games: games,
+        loggedin: req.isAuthenticated()
       })
     });
 });
@@ -107,7 +108,7 @@ router.get("/:date/:id", (req, res) => {
   nodeFetch(`http://data.nba.net/json/cms/noseason/game/${date}/${gameId}/boxscore.json`).then(res => res.json())
     .then(data => {
       if(data.sports_content.game.period_time.period_value == ""){
-        res.render("invalid")
+        res.render("invalid", {loggedin: req.isAuthenticated()})
       }
       else{
 
@@ -248,7 +249,8 @@ router.get("/:date/:id", (req, res) => {
         res.render("boxscore", {
           away: away,
           home: home,
-          gameInfo: gameInfo
+          gameInfo: gameInfo,
+          loggedin: req.isAuthenticated()
         })
       }
     });

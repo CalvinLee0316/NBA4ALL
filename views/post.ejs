@@ -1,5 +1,22 @@
 <%- include('header'); -%>
-<!-- show the post -->
-<h2><%=post._id%></h2>
-<!-- for each loop for comments -->
-<%- include('footer'); -%>
+    <!-- show the post -->
+    <div class="postTitle">
+        <h1><%=post.title%></h1>
+        <pre>Posted by: <%=post.author%>      at      <%=post.date%></pre>
+        <%if(author == 1){%>
+            <a href="/posts/edit/${post._id}" class="discussBtn">Edit</a>
+        <%}%>
+    </div>
+    <div class="postBody">
+        <h3>
+            <%=post.body%>
+        </h3>
+    </div>
+    <div class = "comments">
+        <p>Comments</p>
+    </div>
+
+    </div>
+
+    <!-- for each loop for comments -->
+    <%- include('footer'); -%>

@@ -67,26 +67,30 @@ passport.deserializeUser(function (id, done) {
 //login and register
 app.get('/login', (req, res) => {
   if(req.isAuthenticated()){
-    res.render('secret')
+    res.render('secret', {loggedin: true})
   }else{
-    res.render('./login')
+    res.render('./login', {loggedin: false})
   }
 })
 
 app.get('/register', (req, res) => {
-  res.render('./register')
+  if(req.isAuthenticated()){
+    res.render('register', {loggedin: true})
+  }else{
+    res.render('./register', {loggedin: false})
+  }
 })
 
 app.get('/secret', (req, res) => {
   if (req.isAuthenticated()) {
-    res.render('secret')
+    res.render('secret', {loggedin: true})
   } else {
     res.redirect('login')
   }
 })
 
 app.get('/fail', (req,res)=>{
-  res.render('fail')
+  res.render('fail', {loggedin: req.isAuthenticated()})
 })
 
 app.post('/login',passport.authenticate('local', { failureRedirect: '/fail' }),
@@ -118,18 +122,18 @@ app.get('/logout', (req, res) => {
 
 //general
 app.get("/", (req, res) => {
-  res.render("home")
+  res.render("home", {loggedin: req.isAuthenticated()})
 })
 app.get("/about", (req, res) => {
-  res.render("about")
+  res.render("about", {loggedin: req.isAuthenticated()})
 })
 
 app.get("/contact", (req, res) => {
-  res.render("contact")
+  res.render("contact", {loggedin: req.isAuthenticated()})
 })
 
 app.get('/sneaks', (req, res) => {
-  res.render("./shoes/shoeHome")
+  res.render("./shoes/shoeHome", {loggedin: req.isAuthenticated()})
 })
 
 
