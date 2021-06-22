@@ -15,7 +15,9 @@ var findOrCreate = require('mongoose-findorcreate')
 const indexRoute = require("./routes/index.js");
 const sneaksRoute = require("./routes/sneaks.js");
 const postsRoute = require("./routes/posts.js")
+const playersRoute = require("./routes/players.js");
 const { get } = require("./routes/index.js");
+
 
 // App set up
 const app = express();
@@ -141,6 +143,7 @@ app.get('/sneaks', (req, res) => {
 app.use('/index', indexRoute);
 app.use('/sneaks', sneaksRoute)
 app.use('/posts', postsRoute)
+app.use('/players', playersRoute);
 //Listen
 let port = process.env.PORT || 5000
 app.listen(port, () => {
