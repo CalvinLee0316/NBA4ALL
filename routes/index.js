@@ -74,10 +74,7 @@ router.get("/calendar/:date", (req, res) => {
           clock = game.clock
         }
         games.push({
-          date:date,
           dateGameId: '/index/'+date + '/' + game.gameId,
-          yday: "/index/calendar/"+yesterday,
-          tomo: "/index/calendar/"+tomorrow,
           Home: game.hTeam.triCode,
           HomeLogo: logos.get(game.hTeam.triCode),
           Away: game.vTeam.triCode,
@@ -92,6 +89,9 @@ router.get("/calendar/:date", (req, res) => {
       })
       res.render("index", {
         games: games,
+        today: date,
+        yday: "/index/calendar/"+yesterday,
+        tomo: "/index/calendar/"+tomorrow,
         loggedin: req.isAuthenticated()
       })
     });
@@ -104,7 +104,6 @@ router.get("/:date/:id", (req, res) => {
   const gameId = req.params.id
   home = []
   away = []
-
   nodeFetch(`http://data.nba.net/json/cms/noseason/game/${date}/${gameId}/boxscore.json`).then(res => res.json())
     .then(data => {
       if(data.sports_content.game.period_time.period_value == ""){
@@ -187,8 +186,6 @@ router.get("/:date/:id", (req, res) => {
             fgp: data.sports_content.game.visitor.stats.field_goals_percentage+'%',
             three: data.sports_content.game.visitor.stats.three_pointers_percentage+'%'
           }
-
-
         }
         data.sports_content.game.home.players.player.forEach(player => {
           home.push({

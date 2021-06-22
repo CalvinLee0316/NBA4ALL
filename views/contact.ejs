@@ -6,5 +6,13 @@
     <p>Young Keum: </p>
     <p>Ryan Heo:</p>
     <p>Ruichen Li: rul014@ucsd.edu</p>
+    <button id = "test">click here</button>
 </div>
+<script>
+    document.getElementById("test").addEventListener("click", ()=>{
+        const newText = document.createElement("h2");
+        newText.textContent = "This is new";
+        document.getElementsByClassName("about")[0].appendChild(newText);
+    })
+</script>
 <%- include('footer'); -%>
