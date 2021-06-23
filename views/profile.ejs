@@ -1,3 +1,134 @@
 <%- include('header'); -%>
-<h1><%=stats%></h1>
+
+<div class="latestStatsHeader">
+</div>
+
+<div class = "careerSummaryHeader"> 
+
+</div>
+
+<div class = "regularSeasonHeader"> 
+
+</div>
+
+<div id = "statAccordion">
+    <div class ="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed cardTitle" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <h1>Filler Name or Something</h1>
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+            <div class="card-body">
+              <table>
+                <tr>
+                  <th>Season</th>
+                  <th>Games Played</th>
+                  <th>Games Started</th>
+                  <th>PPG</th>
+                  <th>RPG</th>
+                  <th>APG</th>
+                  <th>MPG</th>
+                  <th>TOPG</th>
+                  <th>SPG</th>
+                  <th>BPG</th>
+                  <th>TPP</th>
+                  <th>FTP</th>
+                  <th>FGP</th>
+                  <th>Ast</th>
+                  <th>Blks</th>
+                  <th>Stls</th>
+                  <th>TOs</th>
+                  <th>OReb</th>
+                  <th>DReb</th>
+                  <th>TReb</th>
+                  <th>FGM</th>
+                  <th>FGA</th>
+                  <th>TPM</th>
+                  <th>TPA</th>
+                  <th>FTM</th>
+                  <th>FTA</th>
+                  <th>Fouls</th>
+                  <th>Pts</th>
+                  <th>Min</th>
+                  <th>+/-</th>
+                </tr>
+            
+                <% stats.regularSeason.season.forEach(season=>{%>
+                  <tr>
+                    <th><%=season.seasonYear%></th>
+                    <th><%=season.total.gamesPlayed%></th>
+                    <th><%=season.total.gamesStarted%></th>
+                    <th><%=season.total.ppg%></th>
+                    <th><%=season.total.rpg%></th>
+                    <th><%=season.total.apg%></th>
+                    <th><%=season.total.mgp%></th>
+                    <th><%=season.total.topg%></th>
+                    <th><%=season.total.spg%></th>
+                    <th><%=season.total.bpg%></th>
+                    <th><%=season.total.tpp%></th>
+                    <th><%=season.total.ftp%></th>
+                    <th><%=season.total.fgp%></th>
+                    <th><%=season.total.assists%></th>
+                    <th><%=season.total.blocks%></th>
+                    <th><%=season.total.steals%></th>
+                    <th><%=season.total.turnovers%></th>
+                    <th><%=season.total.offReb%></th>
+                    <th><%=season.total.defReb%></th>
+                    <th><%=season.total.totReb%></th>
+                    <th><%=season.total.fgm%></th>
+                    <th><%=season.total.fga%></th>
+                    <th><%=season.total.tpm%></th>
+                    <th><%=season.total.tpa%></th>
+                    <th><%=season.total.ftm%></th>
+                    <th><%=season.total.fta%></th>
+                    <th><%=season.total.pFouls%></th>
+                    <th><%=season.total.points%></th>
+                    <th><%=season.total.min%></th>
+                    <th><%=season.total.plusMinus%></th>
+                  </tr>
+                <%})%>
+
+                <tr>
+                  <th>Career</th>
+                  <th> <%=stats.careerSummary.gamesPlayed%></th>
+                  <th> <%=stats.careerSummary.gamesStarted%></th>
+                  <th> <%=stats.careerSummary.ppg%></th>
+                  <th> <%=stats.careerSummary.rpg%></th>
+                  <th> <%=stats.careerSummary.apg%></th>
+                  <th> <%=stats.careerSummary.mpg%></th>
+                  <th> n/a </th>
+                  <th> <%=stats.careerSummary.spg%></th>
+                  <th> <%=stats.careerSummary.bpg%></th>
+                  <th> <%=stats.careerSummary.tpp%></th>
+                  <th> <%=stats.careerSummary.ftp%></th>
+                  <th> <%=stats.careerSummary.fgp%></th>
+                  <th> <%=stats.careerSummary.assists%></th>
+                  <th> <%=stats.careerSummary.blocks%></th>
+                  <th> <%=stats.careerSummary.steals%></th>
+                  <th> <%=stats.careerSummary.turnovers%></th>
+                  <th> <%=stats.careerSummary.offReb%></th>
+                  <th> <%=stats.careerSummary.defReb%></th>
+                  <th> <%=stats.careerSummary.totReb%></th>
+                  <th> <%=stats.careerSummary.fgm%></th>
+                  <th> <%=stats.careerSummary.fga%></th>
+                  <th> <%=stats.careerSummary.tpm%></th>
+                  <th> <%=stats.careerSummary.tpa%></th>
+                  <th> <%=stats.careerSummary.ftm%></th>
+                  <th> <%=stats.careerSummary.fta%></th>
+                  <th> <%=stats.careerSummary.pFouls%></th>
+                  <th> <%=stats.careerSummary.points%></th>
+                  <th> <%=stats.careerSummary.min%></th>
+                  <th> <%=stats.careerSummary.plusMinus%></th>
+                </tr> 
+
+            </table>
+            </div>
+          </div>
+    </div>
+</div>
+
 <%- include('footer'); -%>
