@@ -97,7 +97,7 @@ app.get('/fail', (req,res)=>{
 
 app.post('/login',passport.authenticate('local', { failureRedirect: '/fail' }),
   function (req, res) {
-    res.redirect('/secret');
+    res.render('home', {loggedin: req.isAuthenticated(), message: "Successfully Logged In!"});
   });
 
 app.post('/register', (req, res) => {
@@ -109,7 +109,7 @@ app.post('/register', (req, res) => {
       res.redirect('/register')
     } else {
       passport.authenticate('local')(req, res, function () {
-        res.redirect('/secret')
+        res.render('home', {loggedin: req.isAuthenticated(), message: "Successfully registered and logged in!"})
       })
     }
   })
@@ -117,7 +117,7 @@ app.post('/register', (req, res) => {
 
 app.get('/logout', (req, res) => {
   req.logout()
-  res.redirect('/')
+  res.render('home', {loggedin: req.isAuthenticated(), message: "Logged Out!"})
 })
 
 
