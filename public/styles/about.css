@@ -1,0 +1,17 @@
+.aboutHead{
+    text-align: center;
+    background-color: rgba(247, 244, 244, 0.651);
+  }
+  
+  .aboutHead li{
+    list-style-type: none;
+  }
+
+  .member{
+    margin-bottom: 0;
+  }
+  
+  .aboutContainer{
+    position: relative;
+    width: 100%;
+  }

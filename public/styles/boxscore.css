@@ -1,0 +1,15 @@
+.boxLogo{
+    width: 10%;
+  }
+  
+  .boxHeadLogoHome{
+    width: 3%;
+    margin-left: 6.8%;
+    margin-right: auto;
+  }
+  
+  .boxHeadLogoAway{
+    width: 3%;
+    margin-right: 6.8%;
+    margin-left: auto;
+  }

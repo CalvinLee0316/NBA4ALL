@@ -1,0 +1,83 @@
+.homeContainer{
+    display: flex;
+    background-color: rgba(247, 244, 244, 0.651);
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  
+  .homeHeader h1, .homeHeader h2 {
+    position: absolute;
+    margin-left: 15px;
+  }
+  
+  .homeHeader h1 {
+    left: 55%;
+    top: 40%;
+    font-size: 3.2vw;
+    color: black;
+  }
+  
+  .homeHeader h2{
+    left: 57.5%;
+    top: 47.5%;
+    font-size: 2.8vw;
+  }
+  .homeHeader img{
+    width: 100%;
+  }
+  
+  .homeHeader {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+    font-family: Basketball;
+  }
+  
+  .homeBody {
+    margin-top: 30px;
+    display: flex;
+    align-self: center;
+    width: 70%;
+    border-radius: 10px;
+  }
+
+  .homeBody ul{
+    list-style-type: none;
+  }
+
+.tableOfContents ul{
+    list-style-type: none;
+  }
+
+  #why{
+    background-color: rgb(236, 233, 235);
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+
+  #features{
+    background:rgba(230, 175, 103, 0.589);
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+
+  #contactbtnHome{  
+    border: 2px solid black;
+    position: absolute;
+    top: 90%;
+    width: 10%;
+    left: 40%;
+  }
+  
+  #donatebtnHome{
+    border: 2px solid black;
+    position: absolute;
+    align-self: center;
+    top: 90%;
+    left: 50%;
+    width: 10%
+  }
