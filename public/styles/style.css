@@ -63,7 +63,7 @@ table{
 }
 
 .container{
-  width: 30%;
+  width: 50%;
   margin: 0 0 0 0;
   padding: 0 0 0 0;
   display: flex;
@@ -112,7 +112,7 @@ table{
 }
 
 .logo{
-  width: 17.5%;
+  width: 13%;
 }
 
 .scores {
@@ -185,7 +185,7 @@ table{
 }
 
 #about {
-  width: 70%;
+  width: 40%;
   align-self: center;
   text-align: right;
   justify-self: flex-end;

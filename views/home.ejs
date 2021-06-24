@@ -1,6 +1,12 @@
 <%- include('header'); -%>
 <link rel="stylesheet" href="./styles/home.css">
 
+<%if(typeof message !== 'undefined'){%>
+<div style="text-align: center" class="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong><%=message%></strong> 
+  </div>
+<%}%>
 <div class =homeContainer>
     <div class = homeHeader>
         <img src="./logos/background.jpg" alt="">
