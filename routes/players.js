@@ -60,6 +60,10 @@ nodeFetch("http://data.nba.net/data/10s/prod/v1/2020/players.json").then(res=>re
 router.get("/", (req, res)=>{
     res.render("players", {loggedin: req.isAuthenticated()});
 })
+router.get("/reddit", (req,res)=>{
+    res.render("redditTest", {loggedin: req.isAuthenticated()})
+})
+
 
 router.get("/:id", (req,res)=>{
     nodeFetch(`http://data.nba.net/data/10s/prod/v1/2020/players/${req.params.id}_profile.json`).then(res=>res.json()).then(data=>{
